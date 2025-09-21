@@ -38,6 +38,31 @@ export interface Post {
   type: "post";
 }
 
+export interface ArticlePost {
+  id: string;
+  user: {
+    id: string;
+    name: string;
+    username: string;
+    avatar: string;
+    isVerified: boolean;
+    group?: string;
+  };
+  title: string;
+  content: string;
+  image?: PostImage;
+  timestamp: string;
+  readTime: string;
+  stats: {
+    comments: number;
+    views: number;
+    likes: number;
+    shares: number;
+  };
+  isLiked: boolean;
+  type: "article";
+}
+
 export interface TodoItem {
   id: string;
   text: string;
@@ -51,7 +76,7 @@ export interface TodoCardType {
   type: "todo";
 }
 
-export type FeedItem = Post | TodoCardType;
+export type FeedItem = Post | ArticlePost | TodoCardType;
 
 export interface TimelineState {
   stories: Story[];

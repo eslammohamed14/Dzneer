@@ -14,4 +14,6 @@ export const icons = {
   appreciate: require("@/assets/icons/appreciate.png"),
   checked: require("@/assets/icons/checked.png"),
   check_box: require("@/assets/icons/check_box.png"),
+  share: require("@/assets/icons/share.png"),
+  bookmark: require("@/assets/icons/bookmark.png"),
 };

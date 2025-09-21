@@ -11,13 +11,14 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { icons } from "@/src/common/icons";
 import { colors } from "@/src/common/theme";
 import {
+  ArticleCard,
   Header,
   PostCard,
   StoriesRow,
   TodoCard,
   useTimeline,
 } from "@/src/features/timeline";
-import { FeedItem, Post, Story, TodoCardType } from "../../types";
+import { ArticlePost, FeedItem, Post, Story, TodoCardType } from "../../types";
 import { styles } from "./styles";
 
 export const TimelineScreen = () => {
@@ -29,6 +30,9 @@ export const TimelineScreen = () => {
       if (item.type === "post") {
         const post = item as Post;
         return <PostCard post={post} />;
+      } else if (item.type === "article") {
+        const article = item as ArticlePost;
+        return <ArticleCard article={article} />;
       } else {
         const todoCard = item as TodoCardType;
         return <TodoCard todoCard={todoCard} onToggleItem={toggleTodoItem} />;
