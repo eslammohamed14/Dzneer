@@ -8,7 +8,8 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { colors, icons } from "@/src/common";
+import { icons } from "@/src/common/icons";
+import { colors } from "@/src/common/theme";
 import {
   Header,
   PostCard,
@@ -20,37 +21,20 @@ import { FeedItem, Post, Story, TodoCardType } from "../../types";
 import { styles } from "./styles";
 
 export const TimelineScreen = () => {
-  const {
-    stories,
-    feedItems,
-    refreshing,
-    toggleLike,
-    toggleAppreciate,
-    toggleTodoItem,
-    onRefresh,
-    onComment,
-    onShare,
-  } = useTimeline();
+  const { stories, feedItems, refreshing, toggleTodoItem, onRefresh } =
+    useTimeline();
 
   const renderFeedItem = useCallback(
     ({ item }: { item: FeedItem }) => {
       if (item.type === "post") {
         const post = item as Post;
-        return (
-          <PostCard
-            post={post}
-            onLike={toggleLike}
-            onAppreciate={toggleAppreciate}
-            onComment={onComment}
-            onShare={onShare}
-          />
-        );
+        return <PostCard post={post} />;
       } else {
         const todoCard = item as TodoCardType;
         return <TodoCard todoCard={todoCard} onToggleItem={toggleTodoItem} />;
       }
     },
-    [toggleLike, toggleAppreciate, toggleTodoItem, onComment, onShare]
+    [toggleTodoItem]
   );
 
   const renderHeader = useCallback(

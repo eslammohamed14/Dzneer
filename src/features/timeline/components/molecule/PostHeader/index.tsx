@@ -1,7 +1,8 @@
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
-import { icons, images } from "@/src/common";
+import { icons } from "@/src/common/icons";
+import { images } from "@/src/common/images";
 import { Avatar } from "@/src/features/timeline";
 import { styles } from "./styles";
 

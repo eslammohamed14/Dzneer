@@ -1,6 +1,7 @@
-import { icons } from "@/src/common";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
+
+import { icons } from "@/src/common/icons";
 import { styles } from "./styles";
 
 interface CheckboxProps {

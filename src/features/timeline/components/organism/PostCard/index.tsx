@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 
-import { icons } from "@/src/common";
+import { icons } from "@/src/common/icons";
 import { IconCount, PostHeader, PostImages } from "@/src/features/timeline";
 import { Post } from "../../../types";
 import { styles } from "./styles";

@@ -1,6 +1,7 @@
-import { Checkbox } from "@/src/features/timeline";
 import React, { useCallback } from "react";
 import { Text, View } from "react-native";
+
+import { Checkbox } from "@/src/features/timeline";
 import { TodoCardType } from "../../../types";
 import { styles } from "./styles";
 

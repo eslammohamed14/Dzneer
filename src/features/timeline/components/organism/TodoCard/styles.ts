@@ -1,11 +1,12 @@
+import { StyleSheet } from "react-native";
+
 import {
   borderRadius,
   colors,
   shadows,
   spacing,
   typography,
-} from "@/src/common";
-import { StyleSheet } from "react-native";
+} from "@/src/common/theme";
 
 export const styles = StyleSheet.create({
   container: {

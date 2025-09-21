@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import { Dimensions, FlatList, View } from "react-native";
 
 import { ImageItem } from "@/src/features/timeline";
@@ -13,14 +13,6 @@ const { width: screenWidth } = Dimensions.get("window");
 const imageWidth = screenWidth - 32;
 
 export const PostImages = React.memo<PostImagesProps>(({ images }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const onViewableItemsChanged = useCallback(({ viewableItems }: any) => {
-    if (viewableItems.length > 0) {
-      setCurrentIndex(viewableItems[0].index);
-    }
-  }, []);
-
   const viewabilityConfig = {
     itemVisiblePercentThreshold: 50,
   };
@@ -49,7 +41,6 @@ export const PostImages = React.memo<PostImagesProps>(({ images }) => {
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
-        onViewableItemsChanged={onViewableItemsChanged}
         viewabilityConfig={viewabilityConfig}
         decelerationRate="fast"
         snapToInterval={imageWidth}

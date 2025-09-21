@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, ImageSourcePropType } from "react-native";
 
-import { borderRadius, spacing } from "@/src/common";
+import { borderRadius, spacing } from "@/src/common/theme";
 import { PostImage } from "../../../types";
 import { styles } from "./styles";
 

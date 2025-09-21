@@ -6,7 +6,7 @@ import {
   shadows,
   spacing,
   typography,
-} from "@/src/common";
+} from "@/src/common/theme";
 
 export const styles = StyleSheet.create({
   header: {

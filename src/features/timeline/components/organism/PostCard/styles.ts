@@ -6,7 +6,7 @@ import {
   shadows,
   spacing,
   typography,
-} from "@/src/common";
+} from "@/src/common/theme";
 
 const LINE_HEIGHT = 21;
 

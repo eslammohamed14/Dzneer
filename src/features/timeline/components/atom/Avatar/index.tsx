@@ -2,7 +2,8 @@ import React from "react";
 import { Image, ImageSourcePropType, View } from "react-native";
 import Svg, { Circle } from "react-native-svg";
 
-import { colors, icons } from "@/src/common";
+import { icons } from "@/src/common/icons";
+import { colors } from "@/src/common/theme";
 import { styles } from "./styles";
 
 interface AvatarProps {

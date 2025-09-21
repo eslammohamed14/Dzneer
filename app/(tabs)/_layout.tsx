@@ -3,7 +3,7 @@ import { Tabs } from "expo-router";
 import React from "react";
 
 import { HapticTab } from "@/components/haptic-tab";
-import { icons } from "@/src/common";
+import { icons } from "@/src/common/icons";
 import { colors, spacing } from "@/src/common/theme";
 import { Image } from "react-native";
 
