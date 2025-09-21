@@ -1,6 +1,12 @@
 import { StyleSheet } from "react-native";
 
-import { colors, shadows, spacing } from "@/src/common";
+import {
+  borderRadius,
+  colors,
+  shadows,
+  spacing,
+  typography,
+} from "@/src/common";
 
 export const styles = StyleSheet.create({
   header: {
@@ -15,6 +21,7 @@ export const styles = StyleSheet.create({
   logo: {
     width: 94,
     height: 20,
+    marginLeft: spacing.sm,
   },
   headerRight: {
     flexDirection: "row",
@@ -25,5 +32,22 @@ export const styles = StyleSheet.create({
     width: spacing.lg,
     height: spacing.lg,
     resizeMode: "contain",
+  },
+  sessionTime: {
+    width: spacing.xl,
+    height: spacing.xl,
+    borderRadius: borderRadius.xl,
+    borderColor: colors.lightGray,
+    borderWidth: 2,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  sessionTimeText: {
+    fontSize: typography.sizes.xs,
+    fontWeight: typography.weights.semibold,
+    color: colors.text.lightGray,
+  },
+  sessionTimeTextMin: {
+    fontSize: 8,
   },
 });

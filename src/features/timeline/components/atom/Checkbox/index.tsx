@@ -1,7 +1,6 @@
-import { colors } from "@/src/common";
-import { Ionicons } from "@expo/vector-icons";
+import { icons } from "@/src/common";
 import React from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 
 interface CheckboxProps {
@@ -14,20 +13,19 @@ export const Checkbox = React.memo<CheckboxProps>(
   ({ text, isCompleted, onToggle }) => {
     return (
       <TouchableOpacity
-        style={styles.container}
+        style={[styles.container, isCompleted && styles.containerCompleted]}
         onPress={onToggle}
         activeOpacity={0.7}
       >
-        <View
-          style={[styles.checkbox, isCompleted && styles.checkboxCompleted]}
-        >
-          {isCompleted && (
-            <Ionicons name="checkmark" size={16} color={colors.text.white} />
-          )}
+        <View style={styles.textContainer}>
+          <Text style={[styles.text, isCompleted && styles.textCompleted]}>
+            {text}
+          </Text>
         </View>
-        <Text style={[styles.text, isCompleted && styles.textCompleted]}>
-          {text}
-        </Text>
+        {!isCompleted && (
+          <Image source={icons.check_box} style={styles.checked} />
+        )}
+        {isCompleted && <Image source={icons.checked} style={styles.checked} />}
       </TouchableOpacity>
     );
   }

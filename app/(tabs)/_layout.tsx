@@ -3,7 +3,9 @@ import { Tabs } from "expo-router";
 import React from "react";
 
 import { HapticTab } from "@/components/haptic-tab";
-import { colors } from "@/src/common/theme";
+import { icons } from "@/src/common";
+import { colors, spacing } from "@/src/common/theme";
+import { Image } from "react-native";
 
 export default function TabLayout() {
   return (
@@ -23,7 +25,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Timeline",
+          title: "TIMELINE",
           tabBarIcon: ({ color }) => (
             <Ionicons name="home" size={24} color={color} />
           ),
@@ -32,27 +34,39 @@ export default function TabLayout() {
       <Tabs.Screen
         name="blogs"
         options={{
-          title: "Blogs",
+          title: "BLOGS",
           tabBarIcon: ({ color }) => (
-            <Ionicons name="document-text" size={24} color={color} />
+            <Image
+              source={icons.blogs}
+              style={{ width: spacing.lg, height: spacing.lg }}
+              tintColor={color}
+            />
           ),
         }}
       />
       <Tabs.Screen
         name="videos"
         options={{
-          title: "Videos",
+          title: "VIDEOS",
           tabBarIcon: ({ color }) => (
-            <Ionicons name="play-circle" size={24} color={color} />
+            <Image
+              source={icons.videos}
+              style={{ width: spacing.lg, height: spacing.lg }}
+              tintColor={color}
+            />
           ),
         }}
       />
       <Tabs.Screen
         name="messages"
         options={{
-          title: "Messages",
+          title: "MESSAGING",
           tabBarIcon: ({ color }) => (
-            <Ionicons name="chatbubbles" size={24} color={color} />
+            <Image
+              source={icons.messages}
+              style={{ width: spacing.lg, height: spacing.lg }}
+              tintColor={color}
+            />
           ),
         }}
       />

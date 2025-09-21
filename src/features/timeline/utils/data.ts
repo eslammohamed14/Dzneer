@@ -1,35 +1,41 @@
-import { Post, Story, TodoCard } from "../types";
+import { images } from "../../../common";
+import { Post, Story, TodoCardType } from "../types";
 
 export const mockStories: Story[] = [
   {
     id: "1",
-    username: "You",
-    avatar: "https://via.placeholder.com/60x60/6366F1/FFFFFF?text=You",
-    isViewed: false,
+    username: "Your Story",
+    avatar: images.friend,
+    storyCount: 1,
+    isOwnStory: true,
   },
   {
     id: "2",
-    username: "josephine",
-    avatar: "https://via.placeholder.com/60x60/10B981/FFFFFF?text=JF",
-    isViewed: false,
+    username: "Josephinaed",
+    avatar: images.friend,
+    isOwnStory: false,
+    storyCount: 2,
   },
   {
     id: "3",
-    username: "josephine",
-    avatar: "https://via.placeholder.com/60x60/F59E0B/FFFFFF?text=JF",
-    isViewed: false,
+    username: "Josephinaed",
+    avatar: images.friend,
+    isOwnStory: false,
+    storyCount: 3,
   },
   {
     id: "4",
-    username: "josephine",
-    avatar: "https://via.placeholder.com/60x60/EF4444/FFFFFF?text=JF",
-    isViewed: false,
+    username: "Josephinaed",
+    avatar: images.friend,
+    isOwnStory: false,
+    storyCount: 1,
   },
   {
     id: "5",
-    username: "alex",
-    avatar: "https://via.placeholder.com/60x60/8B5CF6/FFFFFF?text=AL",
-    isViewed: true,
+    username: "Josephinaed",
+    avatar: images.friend,
+    isOwnStory: false,
+    storyCount: 4,
   },
 ];
 
@@ -48,9 +54,9 @@ export const mockPosts: Post[] = [
     images: [
       {
         id: "1",
-        uri: "https://via.placeholder.com/300x200/6366F1/FFFFFF?text=Nature+Walk",
+        image: images.image2,
         width: 300,
-        height: 200,
+        height: 300,
       },
     ],
     timestamp: "2h",
@@ -75,7 +81,7 @@ export const mockPosts: Post[] = [
     },
     content:
       "not everyone can be a millionaire, not everyone can have the beauty queens, not everyone can be happy it's a competition",
-    timestamp: "2h",
+    timestamp: "Yesterday",
     stats: {
       comments: 34,
       views: 87,
@@ -100,12 +106,18 @@ export const mockPosts: Post[] = [
     images: [
       {
         id: "1",
-        uri: "https://via.placeholder.com/300x200/3B82F6/FFFFFF?text=Blue+Car",
+        image: images.image,
+        width: 300,
+        height: 200,
+      },
+      {
+        id: "2",
+        image: images.image2,
         width: 300,
         height: 200,
       },
     ],
-    timestamp: "3h",
+    timestamp: "3 Weeks ago",
     stats: {
       comments: 34,
       views: 87,
@@ -118,7 +130,7 @@ export const mockPosts: Post[] = [
   },
 ];
 
-export const mockTodoCard: TodoCard = {
+export const mockTodoCard: TodoCardType = {
   id: "todo-1",
   title: "3 Important Things to Get Done Today",
   items: [

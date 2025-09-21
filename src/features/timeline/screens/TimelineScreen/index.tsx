@@ -16,7 +16,7 @@ import {
   TodoCard,
   useTimeline,
 } from "@/src/features/timeline";
-import { FeedItem, Post, Story } from "../../types";
+import { FeedItem, Post, Story, TodoCardType } from "../../types";
 import { styles } from "./styles";
 
 export const TimelineScreen = () => {
@@ -46,7 +46,7 @@ export const TimelineScreen = () => {
           />
         );
       } else {
-        const todoCard = item as FeedItem;
+        const todoCard = item as TodoCardType;
         return <TodoCard todoCard={todoCard} onToggleItem={toggleTodoItem} />;
       }
     },

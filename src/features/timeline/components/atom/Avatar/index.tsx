@@ -1,30 +1,40 @@
-import { colors } from "@/src/common";
 import React from "react";
-import { Image, View } from "react-native";
+import { Image, ImageSourcePropType, View } from "react-native";
+import Svg, { Circle } from "react-native-svg";
+
+import { colors, icons } from "@/src/common";
 import { styles } from "./styles";
 
 interface AvatarProps {
-  uri: string;
+  avatar: ImageSourcePropType | string;
   size?: number;
   hasStory?: boolean;
-  isViewed?: boolean;
+  storyCount?: number;
+  isOwnStory?: boolean;
 }
 
 export const Avatar = React.memo<AvatarProps>(
-  ({ uri, size = 40, hasStory = false, isViewed = false }) => {
-    const ringColor = hasStory
-      ? isViewed
-        ? colors.text.muted
-        : colors.primary
-      : "transparent";
+  ({
+    avatar,
+    size = 52,
+    hasStory = false,
+    storyCount = 1,
+    isOwnStory = false,
+  }) => {
+    const ringColor = hasStory ? colors.primary : "transparent";
     const ringSize = size + 8;
+    const radius = ringSize / 2 - 1;
+    const circumference = 2 * Math.PI * radius;
 
-    return (
-      <View style={[styles.container, { width: ringSize, height: ringSize }]}>
-        {hasStory && (
+    const renderStoryRing = () => {
+      if (!hasStory) return null;
+
+      if (storyCount === 1) {
+        return (
           <View
             style={[
               styles.ring,
+              isOwnStory && styles.ownStoryRing,
               {
                 width: ringSize,
                 height: ringSize,
@@ -33,9 +43,37 @@ export const Avatar = React.memo<AvatarProps>(
               },
             ]}
           />
-        )}
+        );
+      } else {
+        const dashLength = circumference / (storyCount * 1.5);
+        const gapLength = circumference / (storyCount * 12);
+        const strokeDasharray = `${dashLength} ${gapLength}`;
+        return (
+          <Svg
+            width={ringSize}
+            height={ringSize}
+            style={{ position: "absolute" }}
+          >
+            <Circle
+              cx={ringSize / 2}
+              cy={ringSize / 2}
+              r={radius}
+              stroke={ringColor}
+              strokeWidth={2}
+              fill="none"
+              strokeDasharray={strokeDasharray}
+              strokeDashoffset={0}
+            />
+          </Svg>
+        );
+      }
+    };
+
+    return (
+      <View style={[styles.container, { width: ringSize, height: ringSize }]}>
+        {renderStoryRing()}
         <Image
-          source={{ uri }}
+          source={typeof avatar === "string" ? { uri: avatar } : avatar}
           style={[
             styles.avatar,
             {
@@ -45,6 +83,11 @@ export const Avatar = React.memo<AvatarProps>(
             },
           ]}
         />
+        {isOwnStory && (
+          <View style={styles.plusIcon}>
+            <Image source={icons.add_circle} style={styles.plusIconImage} />
+          </View>
+        )}
       </View>
     );
   }

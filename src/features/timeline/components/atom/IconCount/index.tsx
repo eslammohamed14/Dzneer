@@ -1,41 +1,32 @@
-import { colors } from "@/src/common";
-import { Ionicons } from "@expo/vector-icons";
 import React from "react";
-import { Text, TouchableOpacity } from "react-native";
+import {
+  Image,
+  ImageSourcePropType,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+
 import { styles } from "./styles";
 
 interface IconCountProps {
-  icon: keyof typeof Ionicons.glyphMap;
+  icon: ImageSourcePropType;
   count: number;
-  onPress?: () => void;
-  isActive?: boolean;
-  activeColor?: string;
+  text: string;
 }
 
-export const IconCount = React.memo<IconCountProps>(
-  ({
-    icon,
-    count,
-    onPress,
-    isActive = false,
-    activeColor = colors.primary,
-  }) => {
-    const iconColor = isActive ? activeColor : colors.text.secondary;
-    const textColor = isActive ? activeColor : colors.text.secondary;
-
-    return (
-      <TouchableOpacity
-        style={styles.container}
-        onPress={onPress}
-        activeOpacity={0.7}
-      >
-        <Ionicons name={icon} size={20} color={iconColor} />
-        <Text style={[styles.count, { color: textColor }]}>
+export const IconCount = React.memo<IconCountProps>(({ icon, count, text }) => {
+  return (
+    <TouchableOpacity style={styles.container} activeOpacity={0.7}>
+      <Image source={icon} style={styles.icon} />
+      <View style={styles.countContainer}>
+        <Text style={styles.count}>
           {count > 999 ? `${Math.floor(count / 1000)}k` : count}
         </Text>
-      </TouchableOpacity>
-    );
-  }
-);
+        <Text style={styles.count}>{text}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+});
 
 IconCount.displayName = "IconCount";

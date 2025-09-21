@@ -1,13 +1,16 @@
+import { ImageSourcePropType } from "react-native";
+
 export interface Story {
   id: string;
   username: string;
-  avatar: string;
-  isViewed: boolean;
+  avatar: ImageSourcePropType | string;
+  storyCount: number;
+  isOwnStory?: boolean;
 }
 
 export interface PostImage {
   id: string;
-  uri: string;
+  image: ImageSourcePropType | string;
   width: number;
   height: number;
 }
@@ -41,14 +44,14 @@ export interface TodoItem {
   isCompleted: boolean;
 }
 
-export interface TodoCard {
+export interface TodoCardType {
   id: string;
   title: string;
   items: TodoItem[];
   type: "todo";
 }
 
-export type FeedItem = Post | TodoCard;
+export type FeedItem = Post | TodoCardType;
 
 export interface TimelineState {
   stories: Story[];

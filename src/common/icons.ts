@@ -9,4 +9,9 @@ export const icons = {
   videos: require("@/assets/icons/videos.png"),
   messages: require("@/assets/icons/messages.png"),
   blogs: require("@/assets/icons/blogs.png"),
+  add_circle: require("@/assets/icons/add_circle.png"),
+  comments: require("@/assets/icons/comment.png"),
+  appreciate: require("@/assets/icons/appreciate.png"),
+  checked: require("@/assets/icons/checked.png"),
+  check_box: require("@/assets/icons/check_box.png"),
 };

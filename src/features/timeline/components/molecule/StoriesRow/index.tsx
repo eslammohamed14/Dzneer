@@ -1,6 +1,8 @@
 import React, { useCallback } from "react";
 import { FlatList } from "react-native";
-import { Story, StoryItem } from "@/src/features/timeline";
+
+import { StoryItem } from "@/src/features/timeline";
+import { Story } from "../../../types";
 import { styles } from "./styles";
 
 interface StoriesRowProps {
@@ -15,7 +17,8 @@ export const StoriesRow = React.memo<StoriesRowProps>(
         <StoryItem
           username={item.username}
           avatar={item.avatar}
-          isViewed={item.isViewed}
+          storyCount={item.storyCount}
+          isOwnStory={item.isOwnStory}
           onPress={() => onStoryPress?.(item)}
         />
       ),

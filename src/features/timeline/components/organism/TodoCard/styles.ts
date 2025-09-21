@@ -1,4 +1,3 @@
-import { StyleSheet } from "react-native";
 import {
   borderRadius,
   colors,
@@ -6,6 +5,7 @@ import {
   spacing,
   typography,
 } from "@/src/common";
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
@@ -31,6 +31,9 @@ export const styles = StyleSheet.create({
     fontSize: typography.sizes.sm,
     color: colors.primary,
     fontWeight: typography.weights.medium,
+    textDecorationLine: "underline",
+    alignSelf: "center",
+    paddingTop: spacing.md,
   },
   content: {
     gap: spacing.xs,

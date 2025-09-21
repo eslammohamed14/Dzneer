@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+
 import { colors, spacing, typography } from "@/src/common";
 
 export const styles = StyleSheet.create({
@@ -9,7 +10,8 @@ export const styles = StyleSheet.create({
   },
   username: {
     fontSize: typography.sizes.xs,
-    color: colors.text.secondary,
+    fontWeight: typography.weights.regular,
+    color: colors.text.black,
     marginTop: spacing.xs,
     textAlign: "center",
   },

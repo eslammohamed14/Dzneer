@@ -1,12 +1,12 @@
-import { StyleSheet } from "react-native";
 import { colors, spacing, typography } from "@/src/common";
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: spacing.md,
-    paddingTop: spacing.md,
+    paddingTop: spacing.sm,
   },
   userInfo: {
     flex: 1,
@@ -15,22 +15,30 @@ export const styles = StyleSheet.create({
   nameRow: {
     flexDirection: "row",
     alignItems: "center",
+    columnGap: spacing.xs,
   },
   name: {
     fontSize: typography.sizes.md,
     fontWeight: typography.weights.semibold,
-    color: colors.text.primary,
+    color: colors.text.black,
   },
   verifiedIcon: {
-    marginLeft: spacing.xs,
+    width: spacing.md,
+    height: spacing.md,
   },
   follow: {
-    fontSize: typography.sizes.sm,
+    fontSize: typography.sizes.lg,
+    fontWeight: typography.weights.semibold,
     color: colors.primary,
-    marginLeft: spacing.xs,
+  },
+  usernameRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    columnGap: spacing.xs,
   },
   username: {
-    fontSize: typography.sizes.sm,
+    fontSize: typography.sizes.xs,
+    fontWeight: typography.weights.regular,
     color: colors.text.secondary,
     marginTop: 2,
   },
@@ -41,8 +49,8 @@ export const styles = StyleSheet.create({
     fontSize: typography.sizes.sm,
     color: colors.text.secondary,
   },
-  moreButton: {
-    padding: spacing.xs,
-    marginTop: spacing.xs,
+  moreIcon: {
+    width: spacing.lg,
+    height: spacing.lg,
   },
 });

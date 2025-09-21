@@ -1,3 +1,5 @@
+import { StyleSheet } from "react-native";
+
 import {
   borderRadius,
   colors,
@@ -5,9 +7,8 @@ import {
   spacing,
   typography,
 } from "@/src/common";
-import { StyleSheet } from "react-native";
 
-const LINE_HEIGHT = typography.lineHeights.normal * typography.sizes.md;
+const LINE_HEIGHT = 21;
 
 export const styles = StyleSheet.create({
   container: {
@@ -24,7 +25,7 @@ export const styles = StyleSheet.create({
   },
   text: {
     fontSize: typography.sizes.md,
-    color: colors.text.primary,
+    color: colors.text.black,
     lineHeight: LINE_HEIGHT,
   },
   textTruncated: {},
@@ -37,10 +38,9 @@ export const styles = StyleSheet.create({
   actionsRow: {
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "space-between",
     paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    borderTopWidth: 1,
-    borderTopColor: colors.border,
+    paddingVertical: spacing.xs,
     marginTop: spacing.sm,
   },
 });

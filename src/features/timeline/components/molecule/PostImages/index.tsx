@@ -1,7 +1,8 @@
-import { colors } from "@/src/common";
-import { ImageItem, PostImage } from "@/src/features/timeline";
 import React, { useCallback, useState } from "react";
 import { Dimensions, FlatList, View } from "react-native";
+
+import { ImageItem } from "@/src/features/timeline";
+import { PostImage } from "../../../types";
 import { styles } from "./styles";
 
 interface PostImagesProps {
@@ -26,25 +27,13 @@ export const PostImages = React.memo<PostImagesProps>(({ images }) => {
 
   const renderImage = useCallback(
     ({ item }: { item: PostImage }) => (
-      <ImageItem image={item} width={imageWidth} />
-    ),
-    []
-  );
-
-  const renderDot = useCallback(
-    (index: number) => (
-      <View
-        key={index}
-        style={[
-          styles.dot,
-          {
-            backgroundColor:
-              index === currentIndex ? colors.text.white : colors.text.muted,
-          },
-        ]}
+      <ImageItem
+        image={item}
+        width={imageWidth}
+        isMultiple={images.length > 1}
       />
     ),
-    [currentIndex]
+    []
   );
 
   if (images.length === 0) {
@@ -66,11 +55,6 @@ export const PostImages = React.memo<PostImagesProps>(({ images }) => {
         snapToInterval={imageWidth}
         snapToAlignment="start"
       />
-      {images.length > 1 && (
-        <View style={styles.dotsContainer}>
-          {images.map((_, index) => renderDot(index))}
-        </View>
-      )}
     </View>
   );
 });

@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { Post, TimelineState, TodoCard } from "../types";
+import { Post, TimelineState, TodoCardType } from "../types";
 import { mockFeedItems, mockStories } from "../utils/data";
 
 export const useTimeline = () => {
@@ -57,7 +57,7 @@ export const useTimeline = () => {
       ...prev,
       feedItems: prev.feedItems.map((item) => {
         if (item.type === "todo" && item.id === todoId) {
-          const todoCard = item as TodoCard;
+          const todoCard = item as TodoCardType;
           return {
             ...todoCard,
             items: todoCard.items.map((todoItem) =>

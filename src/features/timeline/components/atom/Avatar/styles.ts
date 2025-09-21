@@ -1,5 +1,6 @@
-import { colors } from "@/src/common";
 import { StyleSheet } from "react-native";
+
+import { spacing } from "@/src/common";
 
 export const styles = StyleSheet.create({
   container: {
@@ -10,7 +11,23 @@ export const styles = StyleSheet.create({
     position: "absolute",
     borderWidth: 2,
   },
+  ownStoryRing: {
+    borderWidth: 0,
+  },
   avatar: {
-    backgroundColor: colors.surface,
+    resizeMode: "contain",
+  },
+  plusIcon: {
+    position: "absolute",
+    width: spacing.lg,
+    height: spacing.lg,
+    alignItems: "center",
+    justifyContent: "center",
+    bottom: 0,
+    right: 0,
+  },
+  plusIconImage: {
+    width: spacing.lg,
+    height: spacing.lg,
   },
 });

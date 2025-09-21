@@ -5,10 +5,11 @@ import { colors, spacing } from "@/src/common";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.surface,
+    backgroundColor: colors.background,
   },
   content: {
     paddingBottom: spacing.xxl,
+    backgroundColor: colors.surface,
   },
   fab: {
     position: "absolute",

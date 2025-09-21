@@ -1,6 +1,7 @@
+import { Checkbox } from "@/src/features/timeline";
 import React, { useCallback } from "react";
 import { Text, View } from "react-native";
-import { TodoCard as TodoCardType, Checkbox } from "@/src/features/timeline";
+import { TodoCardType } from "../../../types";
 import { styles } from "./styles";
 
 interface TodoCardProps {
@@ -21,7 +22,6 @@ export const TodoCard = React.memo<TodoCardProps>(
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.title}>{todoCard.title}</Text>
-          <Text style={styles.calendar}>View the calendar</Text>
         </View>
 
         <View style={styles.content}>
@@ -34,6 +34,7 @@ export const TodoCard = React.memo<TodoCardProps>(
             />
           ))}
         </View>
+        <Text style={styles.calendar}>View the calendar</Text>
       </View>
     );
   }
